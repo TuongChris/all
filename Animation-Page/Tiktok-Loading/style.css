@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+}
+
+.loader {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.loader div {
+  position: absolute;
+}
+
+.loader div:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  border-radius: 100rem;
+  background-color: #f7004d;
+  animation: spinner 1s linear infinite;
+  animation-delay: -0.5s;
+}
+
+.loader div:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  border-radius: 100rem;
+  background-color: #3affff;
+  animation: spinner 1s infinite linear;
+}
+.loader div:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  border-radius: 100rem;
+  background-color: #f7004d;
+  animation: spinner2 1s infinite linear;
+  animation-delay: -0.5s;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spinner2 {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  49.99% {
+    opacity: 1;
+    transform: translateX(80px);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+.ring {
+  position: absolute;
+  left: 270px;
+  top: 50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100rem;
+  border: 15px solid #f7004d;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  animation: ring1 2s infinite linear;
+}
+
+@keyframes ring1 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dots-loading {
+  position: absolute;
+  top: 100px;
+  left: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  position: absolute;
+}
+.dots-loading div {
+  width: 10px;
+  height: 10px;
+  border-radius: 100rem;
+  background-color: #6a5af9;
+  animation: stager 0.5s infinite linear alternate;
+  animation-delay: calc(-1 * (0.5 / 4) * var(--delay));
+}
+
+/* .dots-loading div:nth-child(1) {
+  animation-delay: -0.12s;
+}
+.dots-loading div:nth-child(2) {
+  animation-delay: -0.24s;
+}
+.dots-loading div:nth-child(3) {
+  animation-delay: -0.36s;
+}
+.dots-loading div:nth-child(4) {
+  animation-delay: -0.48s;
+} */
+
+@keyframes stager {
+  0% {
+    transform: translateY(0);
+  }
+  50%,
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 30px;
+  color: #f7004d;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  left: 550px;
+  top: 100px;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 5px;
+  background-color: #6a5af9;
+  z-index: -1;
+  transition: height 0.5s linear, width 0.5s ease-in-out 0.5s;
+}
+.button:hover::before {
+  height: 100%;
+  width: 100%;
+}
+
+.button2 {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: transparent;
+  color: #f7004d;
+  border: none;
+  outline: none;
+  position: relative;
+  top: 100px;
+  left: 600px;
+}
+.button2 span {
+  position: absolute;
+  background-color: #6a5af9;
+  display: block;
+  transition: all 0.25s linear;
+}
+
+.button2 span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+}
+.button2 span:nth-child(2) {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+}
+.button2 span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+}
+.button2 span:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+}
+.button2:hover span:nth-child(odd) {
+  width: 100%;
+}
+.button2:hover span:nth-child(even) {
+  height: 100%;
+}
